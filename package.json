@@ -1,0 +1,68 @@
+{
+  "name": "code-assistant",
+  "displayName": "Code assistant",
+  "description": "Easily run your AI prompts inside your vscode",
+  "license": "MIT",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.86.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/momohyusuf/Code-assistant.git"
+  },
+  "publisher": "Starkweb technologies",
+  "keywords": [
+    "AI",
+    "Google AI",
+    "Google Gemini",
+    "Prompting",
+    "Coding",
+    "Assistant",
+    "Node.js"
+  ],
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "code-assistant.start",
+        "title": "Code assistant 🧑‍💻"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "code-assistant.start"
+        }
+      ]
+    },
+    "submenus": [
+      {
+        "id": "code-assistant.start",
+        "label": "Code assistant 🧑‍💻"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.86.0",
+    "@vscode/test-cli": "^0.0.4",
+    "@vscode/test-electron": "^2.3.8",
+    "eslint": "^8.56.0",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.2.1"
+  }
+}

@@ -1,0 +1,863 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  /* 1 */
+  border-width: 0;
+  /* 2 */
+  border-style: solid;
+  /* 2 */
+  border-color: #e5e7eb;
+  /* 2 */
+}
+
+::before,
+::after {
+  --tw-content: '';
+}
+
+/*
+1. Use a consistent sensible line-height in all browsers.
+2. Prevent adjustments of font size after orientation changes in iOS.
+3. Use a more readable tab size.
+4. Use the user's configured `sans` font-family by default.
+5. Use the user's configured `sans` font-feature-settings by default.
+6. Use the user's configured `sans` font-variation-settings by default.
+7. Disable tap highlights on iOS
+*/
+
+html,
+:host {
+  line-height: 1.5;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  -moz-tab-size: 4;
+  /* 3 */
+  -o-tab-size: 4;
+  tab-size: 4;
+  /* 3 */
+  /* 4 */
+  font-feature-settings: normal;
+  /* 5 */
+  font-variation-settings: normal;
+  /* 6 */
+  -webkit-tap-highlight-color: transparent;
+  /* 7 */
+}
+
+/*
+1. Remove the margin in all browsers.
+2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
+*/
+
+body {
+  margin: 0;
+  /* 1 */
+  line-height: inherit;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  /* 2 */
+}
+
+pre {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/*
+1. Add the correct height in Firefox.
+2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+3. Ensure horizontal rules are visible by default.
+*/
+
+hr {
+  height: 0;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  border-top-width: 1px;
+  /* 3 */
+}
+
+/*
+Add the correct text decoration in Chrome, Edge, and Safari.
+*/
+
+abbr:where([title]) {
+  -webkit-text-decoration: underline dotted;
+  text-decoration: underline dotted;
+}
+
+/*
+Remove the default font size and weight for headings.
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*
+Reset links to optimize for opt-in styling instead of opt-out.
+*/
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/*
+Add the correct font weight in Edge and Safari.
+*/
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/*
+1. Use the user's configured `mono` font-family by default.
+2. Use the user's configured `mono` font-feature-settings by default.
+3. Use the user's configured `mono` font-variation-settings by default.
+4. Correct the odd `em` font sizing in all browsers.
+*/
+
+code,
+kbd,
+samp,
+#code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+  /* 1 */
+  font-feature-settings: normal;
+  /* 2 */
+  font-variation-settings: normal;
+  /* 3 */
+  font-size: 1em;
+  /* 4 */
+}
+
+/*
+Add the correct font size in all browsers.
+*/
+
+small {
+  font-size: 80%;
+}
+
+/*
+Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+*/
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/*
+1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+3. Remove gaps between table borders by default.
+*/
+
+table {
+  text-indent: 0;
+  /* 1 */
+  border-color: inherit;
+  /* 2 */
+  border-collapse: collapse;
+  /* 3 */
+}
+
+/*
+1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.
+3. Remove default padding in all browsers.
+*/
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-feature-settings: inherit;
+  /* 1 */
+  font-variation-settings: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  font-weight: inherit;
+  /* 1 */
+  line-height: inherit;
+  /* 1 */
+  color: inherit;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+  padding: 0;
+  /* 3 */
+}
+
+/*
+Remove the inheritance of text transform in Edge and Firefox.
+*/
+
+button,
+select {
+  text-transform: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Remove default button styles.
+*/
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: button;
+  /* 1 */
+  background-color: transparent;
+  /* 2 */
+  background-image: none;
+  /* 2 */
+}
+
+/*
+Use the modern Firefox focus style for all focusable elements.
+*/
+
+:-moz-focusring {
+  outline: auto;
+}
+
+/*
+Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
+*/
+
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
+/*
+Add the correct vertical alignment in Chrome and Firefox.
+*/
+
+progress {
+  vertical-align: baseline;
+}
+
+/*
+Correct the cursor style of increment and decrement buttons in Safari.
+*/
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/*
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/
+
+[type='search'] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */
+}
+
+/*
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Change font properties to `inherit` in Safari.
+*/
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+}
+
+/*
+Add the correct display in Chrome and Safari.
+*/
+
+summary {
+  display: list-item;
+}
+
+/*
+Removes the default spacing and border for appropriate elements.
+*/
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+  margin: 0;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+ol,
+ul,
+menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+Reset default styling for dialogs.
+*/
+
+dialog {
+  padding: 0;
+}
+
+/*
+Prevent resizing textareas horizontally by default.
+*/
+
+textarea {
+  resize: vertical;
+}
+textarea:focus {
+  outline: 0;
+  border: 0;
+}
+
+/* Customize scrollbar for Firefox */
+textarea::-webkit-scrollbar {
+  width: 12px;
+}
+textarea::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+textarea::-webkit-scrollbar-thumb {
+  background-color: #060000;
+  border-radius: 6px;
+}
+
+/* Customize scrollbar for WebKit browsers (Chrome, Safari) */
+textarea::-webkit-scrollbar {
+  width: 12px;
+}
+textarea::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+textarea::-webkit-scrollbar-thumb {
+  background-color: #060000;
+  border-radius: 6px;
+}
+
+/* Customize scrollbar for Edge */
+textarea::-ms-scrollbar {
+  width: 12px;
+}
+textarea::-ms-scrollbar-track {
+  background: #f1f1f1;
+}
+textarea::-ms-scrollbar-thumb {
+  background-color: #060000;
+  border-radius: 6px;
+}
+
+/*
+1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
+2. Set the default placeholder color to the user's configured gray 400 color.
+*/
+
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  opacity: 1;
+  /* 1 */
+  color: #9ca3af;
+  /* 2 */
+}
+
+input::placeholder,
+textarea::placeholder {
+  opacity: 1;
+  /* 1 */
+  color: #9ca3af;
+  /* 2 */
+}
+
+/*
+Set the default cursor for buttons.
+*/
+
+button,
+[role='button'] {
+  cursor: pointer;
+}
+
+/*
+Make sure disabled buttons don't get the pointer cursor.
+*/
+
+:disabled {
+  cursor: default;
+}
+
+/*
+1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
+2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
+   This can trigger a poorly considered lint error in some tools but is included by design.
+*/
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+  /* 1 */
+  vertical-align: middle;
+  /* 2 */
+}
+
+/*
+Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
+*/
+pre,
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+pre {
+  white-space: pre-wrap; /* Since CSS 2.1 */
+  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+/* Make elements with the HTML hidden attribute stay hidden by default */
+
+[hidden] {
+  display: none;
+}
+
+.content {
+  display: grid;
+  place-items: center;
+}
+
+header {
+  margin-bottom: 1.5rem;
+  margin-top: 10%;
+  max-width: 40.2rem;
+  width: 100%;
+  border-radius: 10px;
+  padding: 10px;
+  background: rgba(217, 217, 217, 0.58);
+  border: 1px solid white;
+  box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: black;
+  text-align: center;
+}
+header p {
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 0.3rem;
+}
+#bmc__image__container {
+  display: grid;
+  place-items: center;
+  margin-top: 0.5rem;
+}
+#bmc__icon {
+  width: 120px;
+  cursor: pointer;
+  text-align: center;
+}
+
+main {
+  max-width: 40.2rem;
+  width: 100%;
+}
+#response__container__main {
+  position: relative;
+  display: flex;
+  margin: 2rem 0;
+}
+
+#response__container {
+  position: relative;
+  padding: 20px 10px;
+  width: 100%;
+  color: white;
+  border-radius: 10px;
+  backdrop-filter: blur(30px);
+  background-color: rgb(8, 8, 8);
+  border: 1px solid rgba(255, 255, 255, 0.089);
+}
+
+#loader__container {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+footer {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.cssbuttons__io__button {
+  background: rgb(8, 8, 8);
+  color: white;
+  font-family: inherit;
+  padding: 0.35em;
+  padding-left: 1.2em;
+  font-size: 1rem;
+  font-weight: 400;
+  border-radius: 0.9em;
+  border: none;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  box-shadow: inset 0 0 1.6em -0.6em rgb(8, 8, 8);
+  overflow: hidden;
+  position: relative;
+  height: 2.5em;
+  padding-right: 3.3em;
+  cursor: pointer;
+}
+
+.cssbuttons__io__button .icon {
+  background: white;
+  margin-left: 1em;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.2em;
+  width: 2.2em;
+  border-radius: 0.7em;
+  box-shadow: 0.1em 0.1em 0.6em 0.2em rgb(8, 8, 8);
+  right: 0.3em;
+  transition: all 0.3s;
+}
+
+.cssbuttons__io__button:hover .icon {
+  width: calc(100% - 0.6em);
+}
+
+.cssbuttons__io__button .icon svg {
+  width: 1.1em;
+  transition: transform 0.3s;
+  color: rgb(8, 8, 8);
+}
+
+.cssbuttons__io__button:hover .icon svg {
+  transform: translateX(0.1em);
+}
+
+.cssbuttons__io__button:active .icon {
+  transform: scale(0.95);
+}
+
+.InputContainer {
+  display: flex;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(8, 8, 8);
+  overflow: hidden;
+  padding: 0px 5px 0px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.322);
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.075);
+}
+
+.input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background-color: rgb(8, 8, 8);
+  color: white;
+}
+
+/* block of code styles */
+.card {
+  margin: 0 auto;
+  background-color: #24233b;
+  border-radius: 8px;
+  z-index: 1;
+  transition: 0.5s;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 1rem;
+}
+.circle__container {
+  display: flex;
+  gap: 0.5rem;
+}
+.circle {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+.red {
+  background-color: #ff605c;
+}
+
+.yellow {
+  background-color: #ffbd44;
+}
+
+.green {
+  background-color: #00ca4e;
+}
+
+.header {
+  margin: 5px;
+  border-radius: 5px;
+}
+
+#code__language {
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+#code {
+  resize: none;
+  width: 100%;
+  min-height: 200px;
+  background-color: rgb(73, 70, 92);
+  border-radius: 5px;
+  border: none;
+  color: white;
+  padding: 20px;
+  font-size: 1rem;
+}
+#code:focus {
+  outline: none !important;
+}
+
+/* ************************** */
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  --color: hsl(0, 0%, 87%);
+  --animation: 2s ease-in-out infinite;
+}
+
+.loader .loader__circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border: solid 2px var(--color);
+  border-radius: 50%;
+  margin: 0 10px;
+  background-color: transparent;
+  animation: circle-keys var(--animation);
+}
+
+.loader .loader__circle .dot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--color);
+  animation: dot-keys var(--animation);
+}
+
+.loader .loader__circle .outline {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  animation: outline-keys var(--animation);
+}
+
+.loader__circle:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.loader__circle:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.loader__circle:nth-child(4) {
+  animation-delay: 0.9s;
+}
+
+.loader__circle:nth-child(5) {
+  animation-delay: 1.2s;
+}
+
+.loader__circle:nth-child(2) .dot {
+  animation-delay: 0.3s;
+}
+
+.loader__circle:nth-child(3) .dot {
+  animation-delay: 0.6s;
+}
+
+.loader__circle:nth-child(4) .dot {
+  animation-delay: 0.9s;
+}
+
+.loader__circle:nth-child(5) .dot {
+  animation-delay: 1.2s;
+}
+
+.lader__circle:nth-child(1) .outline {
+  animation-delay: 0.9s;
+}
+
+.loader__circle:nth-child(2) .outline {
+  animation-delay: 1.2s;
+}
+
+.loader__circle:nth-child(3) .outline {
+  animation-delay: 1.5s;
+}
+
+.loader__circle:nth-child(4) .outline {
+  animation-delay: 1.8s;
+}
+
+.loader__circle:nth-child(5) .outline {
+  animation-delay: 2.1s;
+}
+
+@keyframes circle-keys {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes dot-keys {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes outline-keys {
+  0% {
+    transform: scale(0);
+    outline: solid 20px var(--color);
+    outline-offset: 0;
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    outline: solid 0 transparent;
+    outline-offset: 20px;
+    opacity: 0;
+  }
+}

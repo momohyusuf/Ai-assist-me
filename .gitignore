@@ -1,0 +1,5 @@
+node_modules
+.env
+/web-view/config.js
+.vscode-test/
+*.vsix
