@@ -1,12 +1,13 @@
 {
-  "name": "code-assistant",
-  "displayName": "Code assistant",
+  "name": "ai-assist-me",
+  "displayName": "AI assist me",
   "description": "Easily run your AI prompts inside your vscode",
   "license": "MIT",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.86.0"
   },
+  "publisher": "starkweb-technologies",
   "repository": {
     "type": "git",
     "url": "https://github.com/momohyusuf/Code-assistant.git"
@@ -28,21 +29,21 @@
   "contributes": {
     "commands": [
       {
-        "command": "code-assistant.start",
-        "title": "Code assistant 🧑‍💻"
+        "command": "ai-assist-me.start",
+        "title": "AI assist me 🧑‍💻"
       }
     ],
     "menus": {
       "editor/context": [
         {
-          "command": "code-assistant.start"
+          "command": "ai-assist-me.start"
         }
       ]
     },
     "submenus": [
       {
-        "id": "code-assistant.start",
-        "label": "Code assistant 🧑‍💻"
+        "id": "ai-assist-me.start",
+        "label": "AI assist me 🧑‍💻"
       }
     ]
   },

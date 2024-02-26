@@ -13,12 +13,12 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
  */
 function activate(context) {
   const globalState = context.globalState;
-  globalState.update("code-assistant.googleApiKey", undefined);
+
   // Check if the key is already stored in global state
-  const googleApiKey = globalState.get("code-assistant.googleApiKey");
+  const googleApiKey = globalState.get("ai-assist-me.googleApiKey");
 
   let disposable = vscode.commands.registerCommand(
-    "code-assistant.start",
+    "ai-assist-me.start",
     async function () {
       // check for google api key
       if (!googleApiKey) {
@@ -49,14 +49,14 @@ function activate(context) {
           const response = await result.response;
           const text = response.text();
 
-          globalState.update("code-assistant.googleApiKey", key.trim());
+          globalState.update("ai-assist-me.googleApiKey", key.trim());
           fs.writeFileSync(
             vscode.Uri.joinPath(context.extensionUri, "web-view", "config.js")
               .fsPath,
             `export const GOOGLE_API_KEY = '${key}';`,
             "utf-8"
           );
-          globalState.update("code-assistant.googleApiKey", key);
+          globalState.update("ai-assist-me.googleApiKey", key);
         } catch (error) {
           console.log(error);
           vscode.window.showErrorMessage(
@@ -68,8 +68,8 @@ function activate(context) {
 
       // Create and show a new webview
       const panel = vscode.window.createWebviewPanel(
-        "code-assistant", // Identifies the type of the webview. Used internally
-        "Code assistant", // Title of the panel displayed to the user
+        "ai-assist-me", // Identifies the type of the webview. Used internally
+        "AI assist me", // Title of the panel displayed to the user
         { viewColumn: vscode.ViewColumn.Beside, preserveFocus: true },
         {
           enableScripts: true, // Enable scripts in the webview
@@ -131,7 +131,7 @@ function getWebviewContent(panel, context) {
   <body>
  <section class="content">
  <header>
-  <h1>Welcome to Code Assistance</h1>
+  <h1>Welcome to "AI assist me"</h1>
   <p>Easily run your prompt inside vscode. Powered by Google Gemini AI</p>
   <p>Find the extension useful and would like to support and encourage me, you can </p>
  <div id="bmc__image__container">
