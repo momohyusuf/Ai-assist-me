@@ -13,6 +13,7 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
  */
 function activate(context) {
   const globalState = context.globalState;
+  globalState.update("code-assistant.googleApiKey", undefined);
   // Check if the key is already stored in global state
   const googleApiKey = globalState.get("code-assistant.googleApiKey");
 
@@ -40,6 +41,8 @@ function activate(context) {
         const genAI = new GoogleGenerativeAI(key.trim());
 
         try {
+          // this prompt is run with hello just to validate the google api key provided
+
           // For text-only input, use the gemini-pro model
           const model = genAI.getGenerativeModel({ model: "gemini-pro" });
           const result = await model.generateContent("Hello");
@@ -53,6 +56,7 @@ function activate(context) {
             `export const GOOGLE_API_KEY = '${key}';`,
             "utf-8"
           );
+          globalState.update("code-assistant.googleApiKey", key);
         } catch (error) {
           console.log(error);
           vscode.window.showErrorMessage(
