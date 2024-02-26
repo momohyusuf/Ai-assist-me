@@ -4,6 +4,14 @@ All notable changes to the "code-helper" extension will be documented in this fi
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-## [Unreleased]
+## [0.0.3]
+
+- Updated Readme file
+
+## [0.0.2]
+
+- Updated the icon
+
+## [0.0.1]
 
 - Initial release
