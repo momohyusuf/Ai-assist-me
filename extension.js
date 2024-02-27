@@ -17,6 +17,14 @@ function activate(context) {
   // Check if the key is already stored in global state
   const googleApiKey = globalState.get("ai-assist-me.googleApiKey");
 
+  if (googleApiKey) {
+    fs.writeFileSync(
+      vscode.Uri.joinPath(context.extensionUri, "web-view", "config.js").fsPath,
+      `export const GOOGLE_API_KEY = '${googleApiKey}';`,
+      "utf-8"
+    );
+  }
+
   let disposable = vscode.commands.registerCommand(
     "ai-assist-me.start",
     async function () {
@@ -24,8 +32,8 @@ function activate(context) {
       if (!googleApiKey) {
         // Prompt the user for their key google api key
         let key = await vscode.window.showInputBox({
-          prompt:
-            "Please enter you google api key. Get your key from: https://aistudio.google.com/",
+          prompt: `If you have already entered the google Api key, please restart your vscode. Otherwise
+             Please enter you google api key. Get your key from: https://aistudio.google.com/`,
           placeHolder: "Please enter your google API key",
         });
 
@@ -49,14 +57,16 @@ function activate(context) {
           const response = await result.response;
           const text = response.text();
 
-          globalState.update("ai-assist-me.googleApiKey", key.trim());
-          fs.writeFileSync(
-            vscode.Uri.joinPath(context.extensionUri, "web-view", "config.js")
-              .fsPath,
-            `export const GOOGLE_API_KEY = '${key}';`,
-            "utf-8"
-          );
-          globalState.update("ai-assist-me.googleApiKey", key);
+          if (text) {
+            globalState.update("ai-assist-me.googleApiKey", key.trim());
+            fs.writeFileSync(
+              vscode.Uri.joinPath(context.extensionUri, "web-view", "config.js")
+                .fsPath,
+              `export const GOOGLE_API_KEY = '${key.trim()}';`,
+              "utf-8"
+            );
+            vscode.window.showInformationMessage("Activated successfully");
+          }
         } catch (error) {
           console.log(error);
           vscode.window.showErrorMessage(
@@ -132,8 +142,8 @@ function getWebviewContent(panel, context) {
  <section class="content">
  <header>
   <h1>Welcome to "AI assist me"</h1>
-  <p>Easily run your prompt inside vscode. Powered by Google Gemini AI</p>
-  <p>Find the extension useful and would like to support and encourage me, you can </p>
+  <p>Easily run your prompts inside vscode. Powered by Google Gemini AI</p>
+  <p>If you find the extension useful and would like to support me, you can </p>
  <div id="bmc__image__container">
   <a id="buy__me__coffee_link" href="https://www.buymeacoffee.com/momoh">
   <img id="bmc__icon" src=${imageUri} alt="bmc-icon" />

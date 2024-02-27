@@ -230,13 +230,12 @@ header {
   max-width: 40.2rem;
   width: 100%;
   border-radius: 10px;
-  padding: 10px;
+  padding: 8px;
   background: rgba(217, 217, 217, 0.58);
   border: 1px solid white;
   box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
-  border-radius: 10px;
   text-align: center;
   cursor: pointer;
   transition: all 0.5s;
@@ -249,16 +248,17 @@ header h1 {
   font-weight: 700;
   color: black;
   text-align: center;
+  margin-bottom: 0.3rem;
 }
 header p {
   font-size: 1rem;
   text-align: center;
-  margin-top: 0.3rem;
+  color: #24233b;
 }
 #bmc__image__container {
   display: grid;
   place-items: center;
-  margin-top: 0.5rem;
+  margin-top: 0.3rem;
 }
 #bmc__icon {
   width: 120px;

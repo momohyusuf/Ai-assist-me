@@ -4,6 +4,10 @@ All notable changes to the "code-helper" extension will be documented in this fi
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [0.0.5]
+
+- Made a fix on configuration
+
 ## [0.0.3]
 
 - Updated Readme file
