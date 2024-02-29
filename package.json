@@ -3,7 +3,7 @@
   "displayName": "AI assist me",
   "description": "Easily run your AI prompts inside your vscode",
   "license": "MIT",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "engines": {
     "vscode": "^1.86.0"
   },

@@ -1,6 +1,8 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
+
 import { GOOGLE_API_KEY } from "../config.js";
 import { highlightCodeBlocks, promptInstruction } from "./utils.js";
+// import { GoogleAI } from "../../extension.js";
 
 // Access your API key as an environment variable (see "Set up your API key" above)
 const genAI = new GoogleGenerativeAI(GOOGLE_API_KEY);
@@ -28,7 +30,6 @@ VALUE_BTN.addEventListener("click", async () => {
     let text = "";
     for await (const chunk of result.stream) {
       const chunkText = chunk.text();
-      console.log(chunkText);
       text += chunkText;
       RESPONSE_CONTAINER.innerHTML = `<pre id="response__container">${formatResponse(
         text
@@ -36,7 +37,7 @@ VALUE_BTN.addEventListener("click", async () => {
     }
 
     if (!text) {
-      RESPONSE_CONTAINER.innerHTML = `<div id="response__container">An error occured try again</div>`;
+      RESPONSE_CONTAINER.innerHTML = `<div id="response__container">An error occurred try again</div>`;
       loaderToggler();
       return;
     }

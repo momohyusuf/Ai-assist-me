@@ -14,7 +14,7 @@ export function highlightCodeBlocks(text) {
         <span class="green circle"></span>
       </div>
   
-        <h2 id="code__language">${cardTitle[0].replace('```', '')}</h2>
+        <h2 id="code__language">${cardTitle[0].replace("```", "")}</h2>
     </div>
       <textarea readonly="" id='code'>
       ${match}</textarea>

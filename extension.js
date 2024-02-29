@@ -127,16 +127,15 @@ function getWebviewContent(panel, context) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />	
     <title>Document</title>
     <link rel="stylesheet" href=${styleUri}/>
-      <script type="importmap" nonce="${nonce}">
-      {
-        "imports": {
-          "@google/generative-ai": "https://esm.run/@google/generative-ai"
-        }
-      }
-    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
-
+    <script type="importmap" crossorigin='anonymous' nonce="${nonce}">
+    {
+      "imports": {
+        "@google/generative-ai": "https://esm.run/@google/generative-ai"
+      }
+    }
+    </script>
   </head>
   <body>
  <section class="content">
@@ -176,7 +175,7 @@ function getWebviewContent(panel, context) {
 
   <footer>  
     <div class="InputContainer">
-        <textarea row="3" placeholder="Type here...." id="question__input__field" class="input" name="text" type="text" autofocus></textarea>
+        <textarea row="3" placeholder="Type here...." id="question__input__field" class="input" name="text" type="text" autofocus spellcheck="true"></textarea>
     </div>
           <button
            id="value__btn"
@@ -200,7 +199,6 @@ function getWebviewContent(panel, context) {
     </footer>
     </main>
     </section>
-
     <script src=${scriptUri} nonce="${nonce}" type="module"></script>
   </body>
 </html>`;
@@ -215,3 +213,9 @@ function getNonce() {
   }
   return text;
 }
+
+{
+  /*  */
+}
+
+// <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src ${webview.cspSource}; script-src 'nonce-${nonce}'; img-src 'self'">
