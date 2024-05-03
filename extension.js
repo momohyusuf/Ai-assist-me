@@ -107,26 +107,28 @@ module.exports = {
 
 // for displaying the webview
 function getWebviewContent(panel, context) {
-  const { webview } = panel;
-  const styleUri = webview.asWebviewUri(
-    vscode.Uri.joinPath(context.extensionUri, "/web-view", "output.css")
-  );
+  try {
+    const { webview } = panel;
+    const styleUri = webview.asWebviewUri(
+      vscode.Uri.joinPath(context.extensionUri, "web-view/media", "styles.css")
+    );
 
-  const imageUri = webview.asWebviewUri(
-    vscode.Uri.joinPath(context.extensionUri, "/web-view", "bmc-button.svg")
-  );
-  const nonce = getNonce();
+    const imageUri = webview.asWebviewUri(
+      vscode.Uri.joinPath(context.extensionUri, "/web-view", "bmc-button.svg")
+    );
 
-  const scriptUri = webview.asWebviewUri(
-    vscode.Uri.joinPath(context.extensionUri, "/web-view/src", "app.js")
-  );
+    const nonce = getNonce();
 
-  return `<html lang="en">
+    const scriptUri = webview.asWebviewUri(
+      vscode.Uri.joinPath(context.extensionUri, "/web-view/src", "app.js")
+    );
+
+    return `<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />	
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href=${styleUri}/>
+    <link href="${styleUri}" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
     <script type="importmap" crossorigin='anonymous' nonce="${nonce}">
@@ -141,16 +143,18 @@ function getWebviewContent(panel, context) {
  <section class="content">
  <header>
   <h1>Welcome to "AI assist me"</h1>
+<div>
   <p>Easily run your prompts inside vscode. Powered by Google Gemini AI</p>
-  <p>If you find the extension useful and would like to support me, you can </p>
+  <p>If you find the extension useful and would like to support me, you can click on the by me coffee button </p>
+</div>
  <div id="bmc__image__container">
   <a id="buy__me__coffee_link" href="https://www.buymeacoffee.com/momoh">
-  <img id="bmc__icon" src=${imageUri} alt="bmc-icon" />
+  <img id="bmc__icon" src="${imageUri}" alt="bmc-icon" />
   </a></div>
 </header>
     <main>
       <section id="response__container__main">
-    </section>  
+    </section>
       <section id="loader__container">
     <div id="loader">
   <div class="loader__circle">
@@ -173,9 +177,9 @@ function getWebviewContent(panel, context) {
 </div>
       </section>
 
-  <footer>  
+  <footer>
     <div class="InputContainer">
-        <textarea row="3" placeholder="Type here...." id="question__input__field" class="input" name="text" type="text" autofocus spellcheck="true"></textarea>
+        <textarea placeholder="Type here...." id="question__input__field" class="input" name="text" type="text" autofocus spellcheck="true"></textarea>
     </div>
           <button
            id="value__btn"
@@ -199,9 +203,12 @@ function getWebviewContent(panel, context) {
     </footer>
     </main>
     </section>
-    <script src=${scriptUri} nonce="${nonce}" type="module"></script>
+    <script src="${scriptUri}" nonce="${nonce}" type="module"></script>
   </body>
 </html>`;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 function getNonce() {
@@ -213,9 +220,3 @@ function getNonce() {
   }
   return text;
 }
-
-{
-  /*  */
-}
-
-// <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src ${webview.cspSource}; script-src 'nonce-${nonce}'; img-src 'self'">

@@ -1,5 +1,4 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
-
 import { GOOGLE_API_KEY } from "../config.js";
 import { highlightCodeBlocks, promptInstruction } from "./utils.js";
 // import { GoogleAI } from "../../extension.js";
